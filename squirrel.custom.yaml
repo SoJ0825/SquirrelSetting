@@ -1,13 +1,14 @@
 # 位置：~/Library/Rime/squirrel.custom.yaml
 # 用法：想要哪項生效，就刪去該行行首的「#」字符，但注意保留用於縮進的空格
 
+
 patch:
   #style/color_scheme: Grassland #TodayIsNotGood #Grassland #MaybeWeHaveHug #DarkMode #GoodEatMango #BigSurDesert #BigSurBeach #AllBlue #OrangeSugar #BigRice #YoungBlood #EastSidePurple #HappySea #Senbe #Sunset #HouseDesign #RoseofER #TriColorDumpling #Tiffany #McDonald #Lakers
-  style/color_scheme: DarkMode
+  style/color_scheme:  DarkMode
   style/inline_preedit: false #true
   style/line_spacing: 2 #6 #1
   style/spacing: 2 #10 #5
-  # 文字字體 字體可以查看Mac的FontBook，你電腦裡有的字體正常都能支援
+  # 文字字體 字體可以查看Mac的FontBook，你電腦裡有的字體正常都能支
   style/font_face: 'Times-Roman,YuppyTC-Regular,AppleColorEmoji' #Times-Roman,HanaMinA,HanaMinB  #Times-Roman,PingFangTC-Light,AppleColorEmoji # YuppyTC-Regular
   style/font_point: 20 #21
   # 數字標籤字體 字體可以查看Mac的FontBook，你電腦裡有的字體正常都能支援
@@ -21,6 +22,26 @@ patch:
   style/border_height: 5                       # 字與上下邊框的高度差
   style/border_width: 5                        # 字與左右邊框的寬度差
   style/base_offset: -3                        # 基線調整
+
+# 在指定 app 選項
+# ascii_mode: true => 預設英文英文輸入
+# vim_mode: true => vim 離開編輯模式，自動切換回英文輸入
+# 補充一下獲取App（path）的方法：
+# 終端命令: osascript -e 'id of app "alfred"'
+# 輸出: com.runningwithcrayons.Alfred
+  app_options:
+    com.jetbrains.PhpStorm:
+      ascii_mode: true
+      vim_mode: true
+    com.microsoft.VSCode:
+      ascii_mode: true
+      vim_mode: true
+    "com.sublimetext.4":
+      ascii_mode: true
+      vim_mode: true
+    dev.warp.Warp-Stable:
+      ascii_mode: true
+      vim_mode: true
 
   preset_color_schemes/RoseofER:
       name: 皇帝玫瑰

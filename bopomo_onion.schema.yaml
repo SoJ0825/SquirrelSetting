@@ -14,18 +14,18 @@ schema:
     - cangjie5
 
 switches:
-  # - name: ascii_mode
-  #   reset: 0
-  #   states: ["中文", "英文"]
-  # - name: full_shape
-  #   reset: 0
-  #   states: ["半形", "全形"]
-  # - name: ascii_punct
-  #   reset: 0
-  #   states: ["。，", "．，"]
-  # - name: simplification
-  #   reset: 0
-  #   states: ["原體", "简体"]
+    - name: ascii_mode
+      reset: 1
+      states: ["中文", "英文"]
+    - name: full_shape
+      reset: 0
+      states: ["半形", "全形"]
+    - name: ascii_punct
+      reset: 0
+      states: ["。，", "．，"]
+    - name: simplification
+      reset: 0
+      states: ["原體", "简体"]
 #   - options: [ utf8, big5, gbk ]
 # #    reset: 0
 #     states:
@@ -64,8 +64,12 @@ engine:
     - script_translator
 
 menu:
-  alternative_select_keys: "WSXEDCRFV"
-  page_size: 9
+  # alternative_select_keys: "WSXEDCRFV"
+  #qazwsxedc
+  #yhnujmik,
+
+  alternative_select_labels: [ QY, AH, ZN, WU, SJ, XM, EI, DK ]
+  page_size: 8
 ############################### 濾鏡 ##################################
 simplifier:
   tips: all
@@ -189,8 +193,10 @@ punctuator:
     "=" : [ "＝", "々", "〃", "〻" ]
     "[" : [ "「", 〈, 〔, "‘", ［, ｛, ＜, （, ﹝, ﹛, ﹤, ﹙, ‹, ˂, "⁽", "₍", "⁅", "｢", "[", "{", "<", "(" ]
     "]" : [ "」", 〉, 〕, "’", ］, ｝, ＞, ）, ﹞, ﹜, ﹥, ﹚, ›, ˃, "⁾", "₎", "⁆", "｣", "]", "}", ">", ")" ]
-    "{" : { commit: "『" }
-    "}" : { commit: "』" }
+    #"{" : { commit: "『" }
+    #"}" : { commit: "』" }
+    "{" : { commit: "「" }
+    "}" : { commit: "」" }
     ":" : { commit: "：" }
     "'" : [ "、","—", "──", "——", "⸺", "‧", "·", "●", "•", "・", "･" ]
     "\"" : { commit: "；" }
@@ -225,10 +231,12 @@ punctuator:
     "_" : { commit: "_" }
     "+" : { commit: "+" }
     "=" : [ "=", "々", "〃", "〻" ]
-    "[" : [ "「", 〈, 〔, "‘", ［, ｛, ＜, （, ﹝, ﹛, ﹤, ﹙, ‹, ˂, "⁽", "₍", "⁅", "｢", "[", "{", "<", "(" ]
-    "]" : [ "」", 〉, 〕, "’", ］, ｝, ＞, ）, ﹞, ﹜, ﹥, ﹚, ›, ˃, "⁾", "₎", "⁆", "｣", "]", "}", ">", ")" ]
-    "{" : { commit: "『" }
-    "}" : { commit: "』" }
+    #"[" : [ "「", 〈, 〔, "‘", ［, ｛, ＜, （, ﹝, ﹛, ﹤, ﹙, ‹, ˂, "⁽", "₍", "⁅", "｢", "[", "{", "<", "(" ]
+    #"]" : [ "」", 〉, 〕, "’", ］, ｝, ＞, ）, ﹞, ﹜, ﹥, ﹚, ›, ˃, "⁾", "₎", "⁆", "｣", "]", "}", ">", ")" ]
+    "[" : [ "『", 〈, 〔, "‘", ［, ｛, ＜, （, ﹝, ﹛, ﹤, ﹙, ‹, ˂, "⁽", "₍", "⁅", "｢", "[", "{", "<", "(" ]
+    "]" : [ "』", 〉, 〕, "’", ］, ｝, ＞, ）, ﹞, ﹜, ﹥, ﹚, ›, ˃, "⁾", "₎", "⁆", "｣", "]", "}", ">", ")" ]
+    "{" : { commit: "「" }
+    "}" : { commit: "」" }
 #    "3" : [ "https://", "http://", "ftp://", "mailto://", "file://" ]
 #    "4" : [ "www.", "line.me/", "/Users/", "/Library/", "C:\\>", "D:\\>", '<a href=""></a>', '<img sre=""></img>', '<a href="mailto:"></a>', '<a href=""><img src="" border="0"></a>' ]
 #    "6" : [ ".com", ".org", ".net", ".co", ".gov", ".edu", ".info" ]
@@ -303,6 +311,25 @@ key_binder:
 #    - {accept: "Control+period", send: "greater", when: always} #「句號」#接受「Contol」+「.」直出「>」
 #    - {accept: "Control+slash", send: "question", when: always} #「問號」#接受「Contol」+「/」直出「？」
 #    - {accept: "Control+apostrophe", send: "quotedbl", when: always} #「頓號」#接受「Contol」+「'」直出「"」
+
+### 左邊選字
+    - {accept: "Shift+Q", send: "Control+1", when: always}
+    - {accept: "Shift+A", send: "Control+2", when: always}
+    - {accept: "Shift+Z", send: "Control+3", when: always}
+    - {accept: "Shift+W", send: "Control+4", when: always}
+    - {accept: "Shift+S", send: "Control+5", when: always}
+    - {accept: "Shift+X", send: "Control+6", when: always}
+    - {accept: "Shift+E", send: "Control+7", when: always}
+    - {accept: "Shift+D", send: "Control+8", when: always}
+### 右邊選字
+    - {accept: "Shift+Y", send: "Control+1", when: always}
+    - {accept: "Shift+H", send: "Control+2", when: always}
+    - {accept: "Shift+N", send: "Control+3", when: always}
+    - {accept: "Shift+U", send: "Control+4", when: always}
+    - {accept: "Shift+J", send: "Control+5", when: always}
+    - {accept: "Shift+M", send: "Control+6", when: always}
+    - {accept: "Shift+I", send: "Control+7", when: always}
+    - {accept: "Shift+K", send: "Control+8", when: always}
 
 editor:
   bindings:
